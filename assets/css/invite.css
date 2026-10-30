@@ -1,0 +1,168 @@
+/* ==========================================================
+   Halaman undangan — "You're Invited to a Birthday" (slide #s0)
+   Animasi jalan saat .slide mendapat class .in (dari app.js)
+   ========================================================== */
+.invite{
+  --inv-red:#bd1a2e;
+  --inv-red-d:#8f1224;
+  --inv-pink:#f3bcc3;
+  --inv-pink-2:#e693a0;
+  --px:0;--py:0;
+  --disp:'Playfair Display','Cormorant Garamond',Georgia,serif;
+  --calli:'Ballet','Pinyon Script','Great Vibes',cursive;
+  padding:58px 22px 74px;
+  background:radial-gradient(120% 70% at 50% 0%,#fffdfa 0%,#fef6f0 55%,#fbebe6 100%);
+  user-select:none;-webkit-user-select:none;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.invite button{background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+/* ---------- Kolom isi ---------- */
+.inv-col{position:relative;z-index:2;width:100%;max-width:330px;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.inv-kicker{font-family:var(--disp);font-weight:600;font-size:clamp(22px,6.6vw,28px);line-height:1.15;color:var(--inv-red);letter-spacing:.005em}
+.inv-name{margin-top:8px;font-family:var(--disp);font-weight:500;font-size:clamp(12px,3.5vw,14px);letter-spacing:.17em;text-transform:uppercase;color:var(--inv-red-d)}
+
+/* entrance */
+.js .invite .inv-rise{opacity:0}
+.invite.in .inv-rise{animation:invUp 1s var(--ease) var(--d,0s) both}
+@keyframes invUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- Judul "Birthday" ---------- */
+.inv-title{
+  position:relative;z-index:3;width:calc(100% + 32px);margin:2px -16px 0;
+  font-family:var(--calli);font-weight:400;line-height:1;text-align:center;color:var(--inv-red);
+  font-size:var(--tfs,clamp(84px,26vw,118px));
+  filter:drop-shadow(0 8px 12px rgba(189,26,46,.12));
+  translate:calc(var(--px) * 4px) calc(var(--py) * 3px);
+  transition:translate .6s ease-out;
+  cursor:pointer;
+}
+.inv-ink{position:relative;display:inline-block;white-space:nowrap}
+.inv-ink-t{display:inline-block;padding:.1em .08em .2em}
+.js .invite .inv-ink-t{clip-path:inset(-30% 100% -30% -12%)}
+.invite.in .inv-ink-t{animation:invWrite 2.4s cubic-bezier(.55,.05,.3,1) var(--wd,.9s) both}
+@keyframes invWrite{from{clip-path:inset(-30% 100% -30% -12%)}to{clip-path:inset(-30% -12% -30% -12%)}}
+
+.inv-pen{position:absolute;top:52%;left:0;width:26px;height:26px;margin:-13px 0 0 -13px;color:var(--inv-red);opacity:0;pointer-events:none}
+.invite.in .inv-pen{animation:invPen 2.4s cubic-bezier(.55,.05,.3,1) var(--wd,.9s) both}
+@keyframes invPen{
+  0%{left:-2%;opacity:0;transform:rotate(0) scale(.6)}
+  8%{opacity:1}
+  50%{transform:rotate(90deg) scale(1.1)}
+  88%{opacity:1}
+  100%{left:108%;opacity:0;transform:rotate(180deg) scale(.6)}
+}
+
+/* ---------- Kue ---------- */
+.inv-cake{
+  position:relative;z-index:1;display:block;width:min(90%,300px);
+  margin-top:calc(var(--tfs,100px) * -.5);
+  translate:calc(var(--px) * 9px) calc(var(--py) * 5px);
+  transition:translate .6s ease-out,transform .3s var(--ease);
+}
+.inv-cake:active{transform:scale(.97)}
+.inv-cake svg{display:block;width:100%;height:auto;overflow:visible;animation:invBob 6s ease-in-out infinite;filter:drop-shadow(0 12px 14px rgba(189,26,46,.10))}
+@keyframes invBob{50%{transform:translateY(-5px) rotate(.4deg)}}
+.js .invite .inv-cake{opacity:0}
+.invite.in .inv-cake{animation:invCake 1.3s var(--ease) 1.1s both}
+@keyframes invCake{from{opacity:0;transform:translateY(26px) scale(.94)}to{opacity:1;transform:none}}
+
+/* lilin */
+.ck-candle{transform-origin:214px 77px;transform:scaleY(0);opacity:0;transition:transform .6s var(--ease),opacity .4s ease}
+.has-candle .ck-candle{transform:none;opacity:1}
+.ck-glow{opacity:0;transition:opacity .5s ease .3s}
+.ck-flame{transform-origin:214px 36px;opacity:0;transition:opacity .3s ease}
+.is-lit .ck-glow{opacity:1}
+.is-lit .ck-flame{opacity:1;animation:invFlame .35s ease-in-out infinite alternate .4s}
+@keyframes invFlame{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.9,1.1) rotate(3deg)}}
+.ck-smoke{stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.puff .ck-smoke{animation:invSmoke 1.9s ease-out}
+@keyframes invSmoke{
+  0%{stroke-dashoffset:1;opacity:.85;transform:translateY(0)}
+  60%{stroke-dashoffset:0;opacity:.6}
+  100%{stroke-dashoffset:0;opacity:0;transform:translateY(-12px)}
+}
+
+/* ---------- Cartouche "Save the date!" ---------- */
+.inv-card{position:relative;z-index:2;width:min(88%,290px);aspect-ratio:2/1;margin-top:-34px;container-type:inline-size}
+.inv-frame{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 12px 14px rgba(189,26,46,.10))}
+.inv-frame .fill{fill:#fffaf6}
+.inv-frame .ln{fill:none;stroke:var(--inv-pink);stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round}
+.inv-frame .ln2{stroke:var(--inv-pink-2);stroke-width:1.2}
+.js .inv-frame .fill{opacity:0;transition:opacity .9s ease 1.7s}
+.js .inv-frame .ln{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s cubic-bezier(.6,.1,.2,1) 1.5s}
+.invite.in .inv-frame .fill{opacity:1}
+.invite.in .inv-frame .ln{stroke-dashoffset:0}
+
+.inv-card-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:2px;color:var(--inv-red)}
+.inv-bow{width:30px;width:11cqw;color:var(--inv-red);margin-bottom:1px;filter:drop-shadow(0 4px 5px rgba(189,26,46,.2))}
+.inv-bow svg{display:block;width:100%;height:auto;overflow:visible}
+.inv-bow.wig{animation:invWig .7s var(--ease)}
+@keyframes invWig{25%{transform:rotate(-14deg) scale(1.15)}60%{transform:rotate(10deg) scale(1.1)}100%{transform:none}}
+.inv-label{font-family:var(--disp);font-style:italic;font-weight:600;font-size:25px;font-size:9cqw;line-height:1.1;white-space:nowrap}
+.inv-when{font-family:var(--disp);font-weight:500;font-size:13px;font-size:4.5cqw;letter-spacing:.08em;text-transform:uppercase;line-height:1.35;white-space:nowrap;color:var(--inv-red-d)}
+.inv-label + .inv-when{margin-top:5px}
+
+.inv-cheers{margin-top:26px;font-family:var(--disp);font-weight:600;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--inv-red-d)}
+.inv-hint{margin-top:10px;font-family:var(--disp);font-style:italic;font-weight:500;font-size:14px;color:var(--inv-red);transition:opacity .25s ease}
+.inv-hint.swap{opacity:0}
+.invite.in .inv-hint{animation:invUp 1s var(--ease) var(--d,0s) both,pulse 2.8s ease-in-out 3.4s infinite}
+
+.inv-down{position:absolute;left:50%;bottom:22px;z-index:3;width:26px;height:26px;margin-left:-13px;color:var(--inv-red);opacity:.55;animation:invNudge 2.2s ease-in-out infinite}
+.inv-down svg{display:block;width:100%;height:100%}
+@keyframes invNudge{50%{transform:translateY(5px);opacity:.25}}
+
+/* ---------- Sulur bunga ---------- */
+.inv-vine{
+  position:absolute;top:-6px;bottom:-6px;width:clamp(78px,27%,112px);z-index:0;overflow:visible;pointer-events:none;
+  transform-origin:50% 0;animation:invSway 8s ease-in-out infinite alternate;
+  translate:calc(var(--px) * -7px) calc(var(--py) * -4px);
+  transition:translate .6s ease-out;
+}
+.inv-vine.l{left:-14px}
+.inv-vine.r{right:-14px;scale:-1 1;animation-delay:-3s}
+@keyframes invSway{from{transform:rotate(-.7deg)}to{transform:rotate(.9deg)}}
+
+.vs{fill:none;stroke:var(--inv-pink-2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.lf-p{fill:var(--inv-pink);stroke:var(--inv-pink-2);stroke-width:1.1;stroke-linejoin:round}
+.lf-r{fill:none;stroke:var(--inv-pink-2);stroke-width:.9;stroke-linecap:round}
+.fl-p{fill:#f8cfd4;stroke:var(--inv-pink-2);stroke-width:1.1;stroke-linejoin:round}
+.fl-c{fill:var(--inv-pink-2)}
+.tn{fill:none;stroke:var(--inv-pink-2);stroke-width:1.2;stroke-linecap:round}
+.lf{transform-origin:0 0}
+
+.js .invite .vs{stroke-dasharray:1;stroke-dashoffset:1}
+.js .invite .lf{transform:scale(0)}
+.js .invite .tn{opacity:0}
+.invite.in .vs{stroke-dashoffset:0;transition:stroke-dashoffset 2.6s cubic-bezier(.5,.1,.2,1) .2s}
+.invite.in .lf{transform:none;transition:transform .9s cubic-bezier(.3,1.4,.5,1) var(--d,0s)}
+.invite.in .tn{opacity:1;transition:opacity .5s ease var(--d,0s)}
+
+/* ---------- Kelopak jatuh (ambient) ---------- */
+.inv-drift{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.inv-drift i{
+  position:absolute;top:-20px;left:var(--l);width:var(--w);height:calc(var(--w) * 1.3);
+  background:var(--inv-pink);border-radius:80% 0 80% 0;opacity:0;
+  animation:invDrift var(--t) linear var(--dl) infinite;
+}
+@keyframes invDrift{
+  0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}
+  10%{opacity:.6}
+  90%{opacity:.5}
+  100%{opacity:0;transform:translate3d(var(--x),min(780px,100svh),0) rotate(320deg)}
+}
+
+/* ---------- Partikel hasil tap ---------- */
+.inv-fx{position:absolute;inset:0;z-index:6;overflow:hidden;pointer-events:none}
+.inv-fx .pt{position:absolute;display:block;font-style:normal;line-height:1;color:var(--c);font-size:var(--s);will-change:transform,opacity}
+.inv-fx .petal{width:calc(var(--s) * .7);height:var(--s);background:var(--c);border-radius:80% 0 80% 0;opacity:.85}
+
+@media (max-width:380px){
+  .invite{padding:52px 16px 70px}
+}
+@media (prefers-reduced-motion:reduce){
+  .inv-drift{display:none}
+  .inv-cake svg,.inv-vine,.inv-down,.is-lit .ck-flame{animation:none!important}
+}

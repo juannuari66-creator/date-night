@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Date Night ♡</title>
+<meta name="description" content="A royal invitation, just for you, my prince.">
+<meta name="theme-color" content="#fbf5ec">
+<meta property="og:title" content="Date Night ♡">
+<meta property="og:description" content="A royal invitation, just for you, my prince.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 32C26 16 6 12 4 24c-1 10 14 14 28 8zm0 0c6-16 26-20 28-8 1 10-14 14-28 8z' fill='none' stroke='%23a8152b' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23a8152b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/loader-ride.webp?v=1793326577" type="image/webp">
+<link rel="stylesheet" href="assets/css/style.css?v=1793372364">
+<link rel="stylesheet" href="assets/css/invite.css?v=1793393638">
+<script>document.documentElement.classList.replace('no-js','js');if(!/[?&]err=/.test(location.search)){if(location.hash)history.replaceState(null,'',location.pathname+location.search);if('scrollRestoration' in history)history.scrollRestoration='manual';document.documentElement.classList.add('is-loading','is-letter')}</script>
+</head>
+<body class="locked">
+
+<!-- ============ LOADER (5 detik) ============ -->
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading">
+  <svg class="spark ld-sp a" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+  <svg class="spark ld-sp b" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+  <svg class="spark ld-sp c" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+
+  <header class="ld-top">
+    <p class="eyebrow" data-fade style="--d:.05s">A little surprise for you</p>
+    <p class="script" data-fade style="--d:.2s">Date Night</p>
+  </header>
+
+  <canvas class="ld-fx" id="ldFx" aria-hidden="true"></canvas>
+  <img class="ld-bike" id="ldBike" src="assets/img/loader-ride.webp?v=1793326577" width="1100" height="857" alt="" decoding="async" fetchpriority="high" draggable="false">
+
+  <footer class="ld-bottom">
+    <div class="ld-track" aria-hidden="true">
+      <i class="ld-fill"></i>
+      <svg class="ld-heart" viewBox="0 0 24 24"><path d="M12 21C5 15.6 2.5 12 2.5 8.6 2.5 5.9 4.6 4 7 4c2 0 3.8 1.2 5 3 1.2-1.8 3-3 5-3 2.4 0 4.5 1.9 4.5 4.6C21.5 12 19 15.6 12 21z" fill="currentColor"/></svg>
+    </div>
+    <p class="ld-line"><span>on our way<i class="ld-ell"></i></span><b><span id="ldPct">0</span>%</b></p>
+    <p class="ld-hint">tap to rev the engine ♡</p>
+  </footer>
+</div>
+
+<!-- Simbol SVG yang dipakai berulang -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="bow" viewBox="0 0 120 50">
+      <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60 25C48 3 14 0 6 14c-6 12 24 24 54 11"/>
+        <path d="M60 25C72 3 106 0 114 14c6 12-24 24-54 11"/>
+        <path d="M50 21C40 13 26 12 18 16" stroke-width="2.6" opacity=".7"/>
+        <path d="M70 21C80 13 94 12 102 16" stroke-width="2.6" opacity=".7"/>
+        <path d="M57 31C51 40 46 45 38 48M63 31C69 40 74 45 82 48" stroke-width="3.4"/>
+      </g>
+      <ellipse cx="60" cy="25" rx="6" ry="7" fill="currentColor"/>
+    </symbol>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7e6a8"/><stop offset=".35" stop-color="#d9a73a"/>
+      <stop offset=".6" stop-color="#f3d77a"/><stop offset="1" stop-color="#b07d1c"/>
+    </linearGradient>
+    <radialGradient id="ruby" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#ff7d8e"/><stop offset=".45" stop-color="#b3152f"/><stop offset="1" stop-color="#5c0b1a"/>
+    </radialGradient>
+    <symbol id="crown" viewBox="0 0 120 92">
+      <path d="M12 72 5 26l33 21L60 13l22 34 33-21-7 46Z" fill="url(#gold)" stroke="#9a6b12" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M38 47 30 72M82 47l8 25M60 13v59" stroke="#9a6b12" stroke-width="1" opacity=".45" fill="none"/>
+      <rect x="10" y="72" width="100" height="14" rx="4" fill="url(#gold)" stroke="#9a6b12" stroke-width="1.6"/>
+      <g fill="url(#gold)" stroke="#9a6b12" stroke-width="1.2"><circle cx="5" cy="24" r="5.5"/><circle cx="60" cy="10" r="6.5"/><circle cx="115" cy="24" r="5.5"/><circle cx="38" cy="46" r="3.6"/><circle cx="82" cy="46" r="3.6"/></g>
+      <ellipse cx="60" cy="50" rx="6" ry="8.5" fill="url(#ruby)" stroke="#7a5410" stroke-width="1"/>
+      <g fill="url(#ruby)" stroke="#7a5410" stroke-width="1"><circle cx="30" cy="79" r="3.8"/><circle cx="60" cy="79" r="3.8"/><circle cx="90" cy="79" r="3.8"/></g>
+      <path d="M18 76c14-3 70-3 84 0" stroke="#fff6cc" stroke-width="1.6" stroke-linecap="round" opacity=".6" fill="none"/>
+    </symbol>
+    <symbol id="sparkle" viewBox="0 0 44 44">
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8C19.4 19 24 23.6 35 25 24 26.4 19.4 31 18 42 16.6 31 12 26.4 1 25 12 23.6 16.6 19 18 8Z"/>
+        <path d="M36 3v9M31.5 7.5h9"/>
+      </g>
+      <g fill="currentColor"><circle cx="38" cy="36" r="1.6"/><circle cx="32" cy="40" r="1.2"/><circle cx="41" cy="31" r="1.1"/><circle cx="6" cy="8" r="1.4"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ LETTER (setelah loading, sebelum cover) ============ -->
+<div class="letter" id="letter" data-frame hidden role="dialog" aria-label="Birthday letter" tabindex="-1">
+  <svg class="spark lt-sp a" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+  <svg class="spark lt-sp b" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+  <svg class="spark lt-sp c" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+
+  <div class="lt-inner">
+    <header class="lt-to">
+      <p class="script"><span>To:</span> <span>Yusuf</span></p>
+      <i class="lt-rule" aria-hidden="true"></i>
+    </header>
+
+    <div class="lt-body" id="ltBody">
+      <div class="lt-src" id="ltSrc">
+        <h2 class="lt-h" data-t>Happy Birthday, Lovee!!</h2>
+                  <p class="lt-p" data-t>Hai sayangg, happy birthday! Hari ini hari spesialmu, dan aku mau jadi yang pertama bilang: selamat datang di umur yang baru ya, sayang.</p>
+                  <p class="lt-p" data-t>Semoga kamu selalu sehat, bahagia, dimudahkan dalam semua urusan, dan apa pun yang kamu mau bisa tercapai satu per satu. I hope this year brings you more good things, new experiences, and lots of reasons to smile.</p>
+                  <p class="lt-p" data-t>Jangan lupa buat selalu bangga sama diri kamu sendiri, because you&#039;ve come this far and you&#039;re doing great. Aku di sini buat ngerayain semua kemenanganmu, dan genggam tanganmu waktu badai datang.</p>
+                  <p class="lt-p" data-t>Makasih ya udah jadi bagian dari hari-hariku dan udah nemenin aku sampai sekarang. I really appreciate all the little things you do, even the ones you think are simple. Semoga kita bisa terus bikin banyak memories bareng dan saling support ke depannya.</p>
+                  <p class="lt-p" data-t>Nah, hari ini let&#039;s go on a date! Your wish is my command (tapi ada syarat dan ketentuan yang berlaku juga ya, haha). I promise to make today as special as you are to me.</p>
+                <p class="lt-end" data-t>Love u more than world,</p>
+        <p class="lt-from" data-t>Made in love, Yaya</p>
+      </div>
+    </div>
+
+    <footer class="lt-foot">
+      <svg class="lt-env" id="ltEnv" viewBox="0 0 64 48" aria-hidden="true">
+        <rect x="3" y="7" width="58" height="38" rx="5" fill="#fffaf2" stroke="currentColor" stroke-width="2.6"/>
+        <path d="M4 10l28 20 28-20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="lt-seal" d="M32 41c-6-4.4-8.4-7.2-8.4-10 0-2.2 1.7-3.8 3.7-3.8 1.9 0 3.7 1 4.7 2.7 1-1.7 2.8-2.7 4.7-2.7 2 0 3.7 1.6 3.7 3.8 0 2.8-2.4 5.6-8.4 10z" fill="currentColor"/>
+      </svg>
+      <p class="lt-hint" id="ltHint" aria-live="polite">tap to read faster</p>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ COVER ============ -->
+<div class="cover" id="cover" data-frame role="dialog" aria-label="Invitation cover">
+  <div class="cover-inner">
+    <button class="crown" id="crown" type="button" aria-label="Tap the crown" data-fade style="--d:.1s">
+      <svg viewBox="0 0 120 92" class="crown-svg" aria-hidden="true"><use href="#crown"/></svg>
+      <svg class="cs cs1" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="cs cs2" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="cs cs3" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+    </button>
+    <p class="eyebrow" data-fade style="--d:.3s">A royal invitation</p>
+    <h1 class="script" data-fade style="--d:.45s">For <span id="guestName">my prince</span></h1>
+    <p class="cover-orn" data-fade style="--d:.55s" aria-hidden="true"><i></i><b>♛</b><i></i></p>
+    <button class="cover-bow" id="openBtn" type="button" aria-label="Untie the ribbon to enter" data-fade style="--d:.65s">
+      <svg viewBox="0 0 120 50" class="bow-big" aria-hidden="true"><use href="#bow"/></svg>
+    </button>
+    <p class="cover-hint" data-fade style="--d:.9s">tap the ribbon to enter, your highness ♛</p>
+  </div>
+</div>
+
+<nav class="dots" aria-label="Sections">
+  <a href="#s0" aria-label="Invitation"></a>
+  <a href="#s1" aria-label="Save the date"></a>
+  <a href="#s2" aria-label="The plan"></a>
+  <a href="#s3" aria-label="Dress code"></a>
+  <a href="#menu" aria-label="Menu"></a>
+  <a href="#announce" aria-label="Announcement"></a>
+</nav>
+
+<main class="stage" id="stage">
+
+  <!-- ============ 0 · UNDANGAN BIRTHDAY ============ -->
+  <section class="slide invite" id="s0" aria-labelledby="t0">
+    <svg class="inv-vine l" viewBox="0 0 100 800" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false"><path class="vs" pathLength="1" d="M27.0 -8.0L26.6 0.0L26.0 8.0L25.3 16.0L24.7 24.0L24.3 32.0L24.4 40.0L25.1 48.0L26.6 56.0L28.9 64.0L31.9 72.0L35.5 80.0L39.5 88.0L43.6 96.0L47.6 104.0L51.2 112.0L54.0 120.0L55.9 128.0L56.8 136.0L56.5 144.0L55.2 152.0L53.0 160.0L50.1 168.0L46.7 176.0L43.2 184.0L39.8 192.0L36.7 200.0L34.1 208.0L32.1 216.0L30.8 224.0L30.0 232.0L29.6 240.0L29.4 248.0L29.4 256.0L29.2 264.0L28.8 272.0L28.1 280.0L27.0 288.0L25.6 296.0L24.1 304.0L22.7 312.0L21.5 320.0L20.7 328.0L20.7 336.0L21.4 344.0L23.1 352.0L25.7 360.0L29.0 368.0L33.0 376.0L37.3 384.0L41.8 392.0L46.0 400.0L49.7 408.0L52.6 416.0L54.5 424.0L55.5 432.0L55.4 440.0L54.3 448.0L52.4 456.0L50.0 464.0L47.2 472.0L44.4 480.0L41.8 488.0L39.4 496.0L37.6 504.0L36.2 512.0L35.3 520.0L34.7 528.0L34.4 536.0L34.0 544.0L33.4 552.0L32.6 560.0L31.3 568.0L29.6 576.0L27.6 584.0L25.3 592.0L22.9 600.0L20.8 608.0L19.1 616.0L18.0 624.0L17.8 632.0L18.5 640.0L20.3 648.0L23.0 656.0L26.5 664.0L30.6 672.0L35.1 680.0L39.6 688.0L43.7 696.0L47.4 704.0L50.2 712.0L52.2 720.0L53.1 728.0L53.2 736.0L52.4 744.0L51.0 752.0L49.1 760.0L47.1 768.0L45.1 776.0L43.4 784.0L42.0 792.0L40.9 800.0L40.3 808.0"/><g transform="translate(24.5 26.0) rotate(38.0) scale(1.30)"><g class="lf" style="--d:0.50s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(26.9 57.0) rotate(151.0) scale(1.10)"><g class="lf" style="--d:0.63s"><path class="tn" d="M0 0c7-2 11 3 7 8-3 3.4-8 0-5.2-3.4"/></g></g><g transform="translate(41.1 91.0) rotate(-23.2) scale(0.91)"><g class="lf" style="--d:0.68s"><path class="tn" d="M0 0c7-2 11 3 7 8-3 3.4-8 0-5.2-3.4"/></g></g><path class="tn" style="--d:0.70s" d="M54.3 121.0L43.6 133.8"/><g transform="translate(43.6 133.8) rotate(67.6) scale(0.85)"><g class="lf" style="--d:0.70s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(55.0 153.0) rotate(48.5) scale(1.08)"><g class="lf" style="--d:0.85s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(39.0 194.0) rotate(176.0) scale(0.87)"><g class="lf" style="--d:0.88s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><path class="tn" style="--d:1.02s" d="M29.8 235.0L40.2 242.4"/><g transform="translate(40.2 242.4) rotate(73.4) scale(1.26)"><g class="lf" style="--d:1.02s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><path class="tn" style="--d:1.00s" d="M28.9 270.0L16.9 275.5"/><g transform="translate(16.9 275.5) rotate(26.0) scale(1.03)"><g class="lf" style="--d:1.00s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(24.5 302.0) rotate(24.5) scale(1.09)"><g class="lf" style="--d:1.08s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><path class="tn" style="--d:1.29s" d="M20.9 340.0L10.6 350.4"/><g transform="translate(10.6 350.4) rotate(32.5) scale(1.08)"><g class="lf" style="--d:1.29s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><path class="tn" style="--d:1.33s" d="M36.8 383.0L53.6 382.8"/><g transform="translate(53.6 382.8) rotate(48.0) scale(1.09)"><g class="lf" style="--d:1.33s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(54.4 423.0) rotate(152.4) scale(0.80)"><g class="lf" style="--d:1.37s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(51.3 460.0) rotate(42.3) scale(1.22)"><g class="lf" style="--d:1.52s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(40.0 494.0) rotate(178.7) scale(1.27)"><g class="lf" style="--d:1.56s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(34.4 536.0) rotate(23.5) scale(0.83)"><g class="lf" style="--d:1.67s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(30.9 570.0) rotate(180.8) scale(0.99)"><g class="lf" style="--d:1.73s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(21.0 607.0) rotate(53.9) scale(0.93)"><g class="lf" style="--d:1.89s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><path class="tn" style="--d:1.98s" d="M19.0 643.0L9.0 654.0"/><g transform="translate(9.0 654.0) rotate(78.9) scale(0.89)"><g class="lf" style="--d:1.98s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(33.4 677.0) rotate(-12.2) scale(1.34)"><g class="lf" style="--d:1.98s"><path class="tn" d="M0 0c7-2 11 3 7 8-3 3.4-8 0-5.2-3.4"/></g></g><g transform="translate(52.2 720.0) rotate(168.1) scale(1.01)"><g class="lf" style="--d:2.09s"><path class="tn" d="M0 0c7-2 11 3 7 8-3 3.4-8 0-5.2-3.4"/></g></g><g transform="translate(49.1 760.0) rotate(47.3) scale(1.03)"><g class="lf" style="--d:2.23s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(41.1 799.0) rotate(149.7) scale(1.04)"><g class="lf" style="--d:2.31s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g></svg>    <svg class="inv-vine r" viewBox="0 0 100 800" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false"><path class="vs" pathLength="1" d="M38.3 -8.0L35.0 0.0L31.3 8.0L27.4 16.0L23.6 24.0L20.3 32.0L17.6 40.0L15.8 48.0L15.0 56.0L15.4 64.0L16.8 72.0L19.2 80.0L22.3 88.0L26.0 96.0L29.8 104.0L33.6 112.0L37.0 120.0L39.9 128.0L42.2 136.0L43.8 144.0L44.7 152.0L45.1 160.0L45.0 168.0L44.8 176.0L44.5 184.0L44.5 192.0L44.6 200.0L45.1 208.0L45.9 216.0L46.9 224.0L47.9 232.0L48.8 240.0L49.3 248.0L49.2 256.0L48.5 264.0L46.9 272.0L44.5 280.0L41.3 288.0L37.5 296.0L33.3 304.0L29.0 312.0L24.9 320.0L21.3 328.0L18.4 336.0L16.5 344.0L15.6 352.0L15.9 360.0L17.1 368.0L19.2 376.0L21.9 384.0L25.0 392.0L28.3 400.0L31.4 408.0L34.2 416.0L36.5 424.0L38.2 432.0L39.4 440.0L40.1 448.0L40.5 456.0L40.7 464.0L41.0 472.0L41.4 480.0L42.2 488.0L43.4 496.0L44.9 504.0L46.6 512.0L48.5 520.0L50.2 528.0L51.7 536.0L52.5 544.0L52.6 552.0L51.9 560.0L50.2 568.0L47.5 576.0L44.0 584.0L40.0 592.0L35.5 600.0L31.1 608.0L26.8 616.0L23.2 624.0L20.3 632.0L18.3 640.0L17.4 648.0L17.4 656.0L18.4 664.0L20.1 672.0L22.3 680.0L24.8 688.0L27.3 696.0L29.5 704.0L31.5 712.0L33.0 720.0L34.1 728.0L34.8 736.0L35.2 744.0L35.6 752.0L36.1 760.0L36.9 768.0L38.0 776.0L39.6 784.0L41.6 792.0L44.1 800.0L46.7 808.0"/><path class="tn" style="--d:0.53s" d="M22.7 26.0L32.0 38.0"/><g transform="translate(32.0 38.0) rotate(70.2) scale(1.05)"><g class="lf" style="--d:0.53s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(15.1 61.0) rotate(143.9) scale(1.20)"><g class="lf" style="--d:0.64s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(27.4 99.0) rotate(-6.6) scale(0.93)"><g class="lf" style="--d:0.72s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(42.0 135.0) rotate(159.4) scale(1.04)"><g class="lf" style="--d:0.68s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(45.0 171.0) rotate(26.8) scale(0.93)"><g class="lf" style="--d:0.88s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(44.7 202.0) rotate(139.7) scale(0.87)"><g class="lf" style="--d:0.95s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(48.8 240.0) rotate(16.8) scale(1.28)"><g class="lf" style="--d:0.99s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(46.9 272.0) rotate(164.0) scale(0.82)"><g class="lf" style="--d:1.08s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(28.0 314.0) rotate(35.4) scale(1.20)"><g class="lf" style="--d:1.10s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(16.1 347.0) rotate(160.8) scale(0.83)"><g class="lf" style="--d:1.22s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(21.5 383.0) rotate(7.7) scale(1.16)"><g class="lf" style="--d:1.33s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><path class="tn" style="--d:1.38s" d="M35.9 422.0L25.9 433.0"/><g transform="translate(25.9 433.0) rotate(64.8) scale(1.09)"><g class="lf" style="--d:1.38s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(40.7 465.0) rotate(23.8) scale(0.85)"><g class="lf" style="--d:1.54s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(44.9 504.0) rotate(134.4) scale(1.21)"><g class="lf" style="--d:1.56s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(52.4 542.0) rotate(29.8) scale(1.14)"><g class="lf" style="--d:1.68s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(43.6 585.0) rotate(174.3) scale(1.25)"><g class="lf" style="--d:1.85s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><path class="tn" style="--d:1.90s" d="M25.9 618.0L32.2 628.7"/><g transform="translate(32.2 628.7) rotate(42.2) scale(0.86)"><g class="lf" style="--d:1.90s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(17.7 659.0) rotate(152.8) scale(1.16)"><g class="lf" style="--d:2.05s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(26.0 692.0) rotate(-16.7) scale(1.23)"><g class="lf" style="--d:2.03s"><path class="tn" d="M0 0c7-2 11 3 7 8-3 3.4-8 0-5.2-3.4"/></g></g><path class="tn" style="--d:2.18s" d="M34.2 729.0L21.3 735.5"/><g transform="translate(21.3 735.5) rotate(74.4) scale(1.12)"><g class="lf" style="--d:2.18s"><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(120)"/><path class="fl-p" d="M0 0C-7-4-10-13 0-17C10-13 7-4 0 0Z" transform="rotate(240)"/><circle class="fl-c" r="2"/></g></g><g transform="translate(36.7 767.0) rotate(8.9) scale(1.08)"><g class="lf" style="--d:2.21s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g><g transform="translate(43.7 799.0) rotate(148.3) scale(1.28)"><g class="lf" style="--d:2.26s"><path class="lf-p" d="M0 0C5-7 17-8 28 0C17 8 5 7 0 0Z"/><path class="lf-r" d="M2 0L23 0"/></g></g></svg>
+    <div class="inv-drift" aria-hidden="true">
+              <i style="--l:8%;--t:12s;--w:9px;--x:-42px;--dl:-0s"></i>
+              <i style="--l:22%;--t:15s;--w:11px;--x:54px;--dl:-2.1s"></i>
+              <i style="--l:37%;--t:11s;--w:8px;--x:-66px;--dl:-4.2s"></i>
+              <i style="--l:51%;--t:17s;--w:10px;--x:36px;--dl:-6.3s"></i>
+              <i style="--l:64%;--t:13s;--w:12px;--x:-48px;--dl:-8.4s"></i>
+              <i style="--l:78%;--t:16s;--w:9px;--x:72px;--dl:-10.5s"></i>
+              <i style="--l:90%;--t:12s;--w:11px;--x:-30px;--dl:-12.6s"></i>
+              <i style="--l:45%;--t:19s;--w:8px;--x:60px;--dl:-14.7s"></i>
+          </div>
+
+    <div class="inv-col">
+      <p class="inv-kicker inv-rise" style="--d:.25s">You&#039;re Invited to a</p>
+      <p class="inv-name inv-rise" style="--d:.5s">Yusuf Hidayatullah</p>
+
+      <h2 id="t0" class="inv-title">
+        <span class="inv-ink"><span class="inv-ink-t">Birthday</span><svg class="inv-pen" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg></span>
+      </h2>
+
+      <button class="inv-cake" id="invCake" type="button" aria-pressed="false" aria-label="Tap to light the candle and make a wish">
+        <svg viewBox="0 0 320 210" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="ckHatch" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V4.5" stroke="#e79ba7" stroke-width="1" opacity=".7"/></pattern>
+            <pattern id="ckHatch2" width="3.4" height="3.4" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)"><path d="M0 0V3.4" stroke="#e79ba7" stroke-width=".9" opacity=".6"/></pattern>
+            <radialGradient id="ckGlow"><stop offset="0" stop-color="#ffd27a" stop-opacity=".85"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+            <linearGradient id="ckFlame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff6b4a"/><stop offset=".6" stop-color="#ffb347"/><stop offset="1" stop-color="#fff1b8"/></linearGradient>
+          </defs>
+          <!-- piring -->
+          <path d="M8 170C8 190 76 204 160 204S312 190 312 170Z" fill="#f4cbd1" stroke="#e79ba7" stroke-width="2" stroke-linejoin="round"/>
+          <ellipse cx="160" cy="170" rx="152" ry="26" fill="#fbe1e4" stroke="#e79ba7" stroke-width="2"/>
+          <ellipse cx="160" cy="169" rx="116" ry="17" fill="none" stroke="#e79ba7" stroke-width="1.3"/>
+          <ellipse cx="166" cy="170" rx="106" ry="10" fill="#e79ba7" opacity=".22"/>
+          <g stroke-linejoin="round" stroke-linecap="round">
+            <!-- sisi kanan -->
+            <path d="M238 88 272 70V150L238 168Z" fill="#f2c0c7" stroke="#e79ba7" stroke-width="2"/>
+            <path d="M238 88 272 70V150L238 168Z" fill="url(#ckHatch2)"/>
+            <path d="M238 126 272 108M238 156 272 138" stroke="#fff4ef" stroke-width="7"/>
+            <!-- badan depan -->
+            <rect x="70" y="88" width="168" height="80" fill="#f9d6da"/>
+            <rect x="70" y="88" width="168" height="80" fill="url(#ckHatch)"/>
+            <rect x="70" y="122" width="168" height="8" fill="#fff4ef"/>
+            <rect x="70" y="152" width="168" height="6" fill="#fff4ef"/>
+            <path d="M70 122H238M70 130H238M70 152H238M70 158H238" stroke="#e79ba7" stroke-width="1.2"/>
+            <rect x="70" y="88" width="168" height="80" fill="none" stroke="#e79ba7" stroke-width="2"/>
+            <!-- permukaan atas -->
+            <path d="M70 88 104 70H272L238 88Z" fill="#fff6f2" stroke="#e79ba7" stroke-width="2"/>
+            <path d="M126 80q14-6 28 0t28 0t28 0M142 74q12-4 24 0t24 0" fill="none" stroke="#f0b4bd" stroke-width="1.4"/>
+            <!-- krim bergelombang -->
+            <path d="M70 88H238V100q-10 13-21 0q-10 13-21 0q-10 13-21 0q-10 13-21 0q-10 13-21 0q-10 13-21 0q-10 13-21 0q-10 13-21 0Z" fill="#fff4ef" stroke="#e79ba7" stroke-width="1.6"/>
+            <path d="M238 88 272 70V82L238 100Z" fill="#fff4ef" stroke="#e79ba7" stroke-width="1.6"/>
+            <!-- ceri + daun -->
+            <path d="M172 58C172 47 164 41 156 39" fill="none" stroke="#e0808f" stroke-width="1.8"/>
+            <path d="M156 39C150 33 142 35 140 41 147 45 153 44 156 39Z" fill="#f7c3ca" stroke="#e0808f" stroke-width="1.4"/>
+            <circle cx="172" cy="67" r="9" fill="#f6b3bc" stroke="#e0808f" stroke-width="1.8"/>
+            <path d="M167 64q2-3 5-3" fill="none" stroke="#fff" stroke-width="1.6" opacity=".85"/>
+          </g>
+          <!-- lilin (muncul saat dikasih tap) -->
+          <g class="ck-candle">
+            <circle class="ck-glow" cx="214" cy="28" r="28" fill="url(#ckGlow)"/>
+            <rect x="211" y="40" width="6" height="37" rx="2" fill="#fff" stroke="#e79ba7" stroke-width="1.4"/>
+            <path d="M211 48l6-3M211 56l6-3M211 64l6-3M211 72l6-3" stroke="#e693a0" stroke-width="1.6" stroke-linecap="round"/>
+            <path class="ck-flame" d="M214 16C221 25 220 33 214 36 208 33 207 25 214 16Z" fill="url(#ckFlame)"/>
+            <path class="ck-smoke" pathLength="1" d="M214 32c-7-8 7-12 0-21-6-8 6-12 1-20" fill="none" stroke="#c9a0a6" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </button>
+
+      <div class="inv-card inv-rise" style="--d:1.5s">
+        <svg class="inv-frame" viewBox="0 0 300 150" aria-hidden="true" focusable="false">
+          <path class="fill" d="M52 14H118C128 14 134 6 150 6S172 14 182 14H248A20 20 0 0 0 268 34V116A20 20 0 0 0 248 136H182C172 136 166 144 150 144S128 136 118 136H52A20 20 0 0 0 32 116V34A20 20 0 0 0 52 14Z"/>
+          <path class="ln" pathLength="1" d="M52 14H118C128 14 134 6 150 6S172 14 182 14H248A20 20 0 0 0 268 34V116A20 20 0 0 0 248 136H182C172 136 166 144 150 144S128 136 118 136H52A20 20 0 0 0 32 116V34A20 20 0 0 0 52 14Z"/>
+          <path class="ln ln2" pathLength="1" d="M52 23H119C129 23 137 16 150 16S171 23 181 23H248A11 11 0 0 0 259 34V116A11 11 0 0 0 248 127H181C171 127 163 134 150 134S129 127 119 127H52A11 11 0 0 0 41 116V34A11 11 0 0 0 52 23Z"/>
+        </svg>
+        <div class="inv-card-in">
+          <button class="inv-bow" id="invBow" type="button" aria-label="Sprinkle some sparkles"><svg viewBox="0 0 120 50" aria-hidden="true"><use href="#bow"/></svg></button>
+          <p class="inv-label">Save the date!</p>
+          <p class="inv-when">November 5</p>
+        </div>
+      </div>
+
+      <p class="inv-cheers inv-rise" style="--d:2s">Lets celebrate!</p>
+      <p class="inv-hint inv-rise" id="invHint" style="--d:2.3s" aria-live="polite">psst… tap the cake ♡</p>
+    </div>
+
+    <a class="inv-down" href="#s1" aria-label="Scroll to the next page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
+    </a>
+
+    <div class="inv-fx" id="invFx" aria-hidden="true"></div>
+    <span class="pager">1/6</span>
+  </section>
+
+  <!-- ============ 1 · SAVE THE DATE ============ -->
+  <section class="slide" id="s1" data-frame aria-labelledby="t1">
+
+    <header class="head" data-reveal>
+      <svg class="spark l" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark r" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="crown-sm" viewBox="0 0 120 92" aria-hidden="true"><use href="#crown"/></svg>
+      <h2 id="t1" class="save"><span class="script xl">Save</span><span class="caps">THE DATE &gt;'&lt;</span></h2>
+    </header>
+
+    <div class="cal" data-reveal style="--d:.15s" role="img" aria-label="Calendar: Thursday, 5 November 2026">
+      <p class="cal-month">NOVEMBER 2026</p>
+      <div class="cal-grid" aria-hidden="true">
+                  <span class="cal-dow">M</span>
+                  <span class="cal-dow">TU</span>
+                  <span class="cal-dow">W</span>
+                  <span class="cal-dow">TH</span>
+                  <span class="cal-dow">F</span>
+                  <span class="cal-dow">SA</span>
+                  <span class="cal-dow">SU</span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>                              <span class="cal-day">1</span>
+                                        <span class="cal-day">2</span>
+                                        <span class="cal-day">3</span>
+                                        <span class="cal-day">4</span>
+                                        <span class="cal-day is-date">
+              <i class="cal-hype">!! !!</i>
+              <svg class="cal-ring" viewBox="0 0 60 50" preserveAspectRatio="none"><path class="ring" pathLength="1" d="M30 4C14 3 4 12 5 26c1 14 14 21 28 19 15-2 23-12 21-24C52 10 40 3 26 5"/></svg>
+              <b>5</b>
+            </span>
+                                        <span class="cal-day">6</span>
+                                        <span class="cal-day">7</span>
+                                        <span class="cal-day">8</span>
+                                        <span class="cal-day">9</span>
+                                        <span class="cal-day">10</span>
+                                        <span class="cal-day">11</span>
+                                        <span class="cal-day">12</span>
+                                        <span class="cal-day">13</span>
+                                        <span class="cal-day">14</span>
+                                        <span class="cal-day">15</span>
+                                        <span class="cal-day">16</span>
+                                        <span class="cal-day">17</span>
+                                        <span class="cal-day">18</span>
+                                        <span class="cal-day">19</span>
+                                        <span class="cal-day">20</span>
+                                        <span class="cal-day">21</span>
+                                        <span class="cal-day">22</span>
+                                        <span class="cal-day">23</span>
+                                        <span class="cal-day">24</span>
+                                        <span class="cal-day">25</span>
+                                        <span class="cal-day">26</span>
+                                        <span class="cal-day">27</span>
+                                        <span class="cal-day">28</span>
+                                        <span class="cal-day">29</span>
+                                        <span class="cal-day">30</span>
+                        </div>
+      <svg class="spark cal-spark" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+    </div>
+
+    <div class="when" data-reveal style="--d:.25s">
+      <p class="when-date">Thursday, 5 November 2026</p>
+      <p class="when-venue">18.30 · at Our favorite cafe</p>
+    </div>
+
+    <div class="count" data-countdown data-target="2026-11-05T18:30:00+07:00" data-reveal style="--d:.35s" aria-live="off">
+      <div><b data-u="d">00</b><small>days</small></div>
+      <div><b data-u="h">00</b><small>hrs</small></div>
+      <div><b data-u="m">00</b><small>min</small></div>
+      <div><b data-u="s">00</b><small>sec</small></div>
+    </div>
+
+    <div class="notes" data-reveal style="--d:.45s">
+      <p class="notes-h">NOTES</p>
+      <p class="notes-t">A PRINCE NEVER KEEPS HIS PRINCESS WAITING</p>
+    </div>
+
+    <span class="pager">2/6</span>
+  </section>
+
+  <!-- ============ 2 · WHAT ARE WE GONNA DO ============ -->
+  <section class="slide" id="s2" data-frame aria-labelledby="t2">
+
+    <header class="head" data-reveal>
+      <svg class="spark l" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark r" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <h2 id="t2"><span class="caps lg">WHAT ARE WE</span><span class="script xl">Gonna Do??</span></h2>
+    </header>
+
+    <ol class="plan">
+              <li class="plan-item" data-reveal style="--d:0.12s">
+          <img class="ill ill-img" src="assets/img/plan-scooter.webp?v=1793372334" alt="" loading="lazy" decoding="async" draggable="false">
+          <p class="plan-text">
+            <span class="plan-title">PICK UP UR PRINCESS</span>
+          </p>
+        </li>
+              <li class="plan-item" data-reveal style="--d:0.26s">
+          <img class="ill ill-img" src="assets/img/plan-photo.webp?v=1793372338" alt="" loading="lazy" decoding="async" draggable="false">
+          <p class="plan-text">
+            <span class="plan-title">TAKE A PICT</span>
+          </p>
+        </li>
+              <li class="plan-item" data-reveal style="--d:0.40s">
+          <img class="ill ill-img" src="assets/img/plan-dinner.webp?v=1793372339" alt="" loading="lazy" decoding="async" draggable="false">
+          <p class="plan-text">
+            <span class="plan-title">DINNER &amp; YAPPING</span>
+          </p>
+        </li>
+              <li class="plan-item" data-reveal style="--d:0.54s">
+          <img class="ill ill-img" src="assets/img/plan-couple.webp?v=1793372341" alt="" loading="lazy" decoding="async" draggable="false">
+          <p class="plan-text">
+            <span class="plan-title">AND WE FREE TIME!!</span>
+          </p>
+        </li>
+          </ol>
+
+    <span class="pager">3/6</span>
+  </section>
+
+  <!-- ============ 3 · DRESSCODE ============ -->
+  <section class="slide" id="s3" data-frame aria-labelledby="t3">
+
+    <header class="head" data-reveal>
+      <svg class="spark l" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark r" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <h2 id="t3"><span class="script xl">Dresscode</span><span class="caps">FOR THE DAY&gt;&lt;</span></h2>
+    </header>
+
+    <figure class="outfit" data-reveal style="--d:.15s">
+      <img src="assets/img/outfit-maroon.png?v=1793373040" width="849" height="1007" alt="Outfit idea: maroon henley top with black wide pants, and maroon short-sleeve camp-collar shirt with black pants" loading="lazy">
+    </figure>
+
+    <ul class="swatches" data-reveal style="--d:.3s">
+              <li><i style="--c:#6b1020"></i><span>Maroon</span></li>
+              <li><i style="--c:#1d1b1c"></i><span>Black</span></li>
+          </ul>
+
+    <p class="caption" data-reveal style="--d:.4s">ROYAL MAROON &amp; BLACK</p>
+
+    <span class="pager">4/6</span>
+  </section>
+
+  <!-- ============ 4 · MENU ============ -->
+  <section class="slide" id="menu" data-frame aria-labelledby="t4">
+
+    <header class="head" data-reveal>
+      <svg class="spark l" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark r" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <h2 id="t4"><span class="caps lg">PICK YOUR</span><span class="script xl">Menu</span></h2>
+      <p class="sub">pick what you're craving ♡</p>
+    </header>
+
+    <form class="order" id="orderForm" action="#" method="get" autocomplete="off" novalidate>
+
+      <div class="field" data-reveal style="--d:.2s">
+        <label for="f-food">Food</label>
+        <select id="f-food" name="food" data-placeholder="Choose your food" required>
+          <option value="">Choose your food</option>
+                      <option value="Nasi Goreng Beef">Nasi Goreng Beef</option>
+                      <option value="Beef Blackpepper">Beef Blackpepper</option>
+                      <option value="Chicken Salted Egg">Chicken Salted Egg</option>
+                      <option value="Chicken Katsu Curry">Chicken Katsu Curry</option>
+                      <option value="Nasi Goreng Seafood">Nasi Goreng Seafood</option>
+                  </select>
+      </div>
+
+      <div class="field" data-reveal style="--d:.3s">
+        <label for="f-drink">Drink</label>
+        <select id="f-drink" name="drink" data-placeholder="Choose your drink" required>
+          <option value="">Choose your drink</option>
+                      <option value="Classic Caffe Latte">Classic Caffe Latte</option>
+                      <option value="Cappuccino">Cappuccino</option>
+                      <option value="Caramel Coffee">Caramel Coffee</option>
+                      <option value="Mineral Water">Mineral Water</option>
+                      <option value="Lychee Tea">Lychee Tea</option>
+                      <option value="Pistachio Latte">Pistachio Latte</option>
+                      <option value="Choco Pistachio">Choco Pistachio</option>
+                      <option value="Greentea Latte">Greentea Latte</option>
+                  </select>
+      </div>
+
+      <div class="field" data-reveal style="--d:.4s">
+        <label for="f-note">Little note <em>(optional)</em></label>
+        <input id="f-note" class="inp" type="text" name="note" maxlength="140" placeholder="less sugar, no onion, allergies…">
+      </div>
+
+      <!-- Ticket preview -->
+      <aside class="ticket" data-reveal style="--d:.5s" aria-label="Your order preview">
+        <p class="tk-top"><span>TABLE FOR TWO</span><span>5 Nov</span></p>
+        <dl class="tk-rows">
+          <div><dt>Food</dt><dd data-preview="food" class="is-empty">not picked yet</dd></div>
+          <div><dt>Drink</dt><dd data-preview="drink" class="is-empty">not picked yet</dd></div>
+        </dl>
+        <p class="tk-foot">♛ see you soon, your highness ♛</p>
+      </aside>
+
+      <p class="form-msg" id="formMsg" role="alert"></p>
+
+      <button class="btn" id="sendBtn" type="submit" data-reveal style="--d:.6s">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.3 18.8z"/><path d="M12 14.2c-2.2-1.4-3.2-2.7-3.2-3.9 0-1 .7-1.6 1.5-1.6.6 0 1.2.4 1.7 1.1.5-.7 1.1-1.1 1.7-1.1.8 0 1.5.6 1.5 1.6 0 1.2-1 2.5-3.2 3.9z" stroke-width="1.5"/></svg>
+        <span class="btn-label">Send to WhatsApp</span>
+      </button>
+    </form>
+
+    <span class="pager">5/6</span>
+  </section>
+
+  <!-- ============ 5 · ANNOUNCEMENT ============ -->
+    <section class="slide slide-ann" id="announce" data-frame aria-labelledby="t5">
+
+    <header class="head" data-reveal>
+      <svg class="spark l" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark r" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <h2 id="t5"><span class="caps xl-caps">ANNOUNCEMENT</span></h2>
+    </header>
+
+    <div class="ann" data-reveal style="--d:.15s">
+      <svg class="spark ann-sp a" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark ann-sp b" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+      <svg class="spark ann-sp c" viewBox="0 0 44 44" aria-hidden="true"><use href="#sparkle"/></svg>
+
+      <div class="stamp">
+        <div class="stamp-in">
+          <i class="tape t1" aria-hidden="true"></i>
+          <svg class="stamp-orn" viewBox="0 0 120 20" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 12c10 0 12-8 22-8 7 0 8 7 3 7s-4-5 1-5M114 12c-10 0-12-8-22-8-7 0-8 7-3 7s4-5-1-5"/><path d="M12 16c14 0 24-2 36-2M108 16c-14 0-24-2-36-2" opacity=".5"/></g><path d="M60 16C53 11 51 8.5 51 6.3c0-1.6 1.2-2.8 2.7-2.8 1.5 0 2.8.8 3.5 2 .7-1.2 2-2 3.5-2 1.5 0 2.7 1.2 2.7 2.8 0 2.2-2 4.7-9 9.7z" transform="translate(-0.5 1)" fill="currentColor"/></svg>
+                      <p class="ann-p">Please mark your calendar, my prince. A little celebration is waiting for you ♡</p>
+                      <p class="ann-p">Come with your best smile and your favorite maroon outfit.</p>
+                    <p class="ann-end">See you there, birthday boy!</p>
+          <i class="tape t2" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <!-- tulip bouquet -->
+      <svg class="ann-art tulips" viewBox="0 0 100 130" aria-hidden="true">
+        <g stroke="#3f7a3c" stroke-width="3" stroke-linecap="round" fill="none"><path d="M36 58 48 112M52 50 52 112M68 58 56 112"/></g>
+        <path d="M52 112C30 100 22 82 18 70c14 4 26 16 34 42zM52 112C74 100 82 84 86 72c-14 4-26 16-34 40z" fill="#5e9e55" stroke="#3f7a3c" stroke-width="2" stroke-linejoin="round"/>
+        <g stroke="#b94a58" stroke-width="2" stroke-linejoin="round">
+          <path d="M24 38c0-16 8-24 12-28 4 6 14 6 14 6s2 20-8 36c-10 2-18-4-18-14z" fill="#f4a7a3" transform="translate(-2 6) rotate(-10 36 40)"/>
+          <path d="M40 30c0-18 8-26 12-30 4 6 12 8 14 10 0 0 2 24-10 38-10 2-16-6-16-18z" fill="#f7b9b4" transform="translate(2 2)"/>
+          <path d="M62 38c0-16 8-24 12-28 4 6 14 6 14 6s2 20-8 36c-10 2-18-4-18-14z" fill="#f4a7a3" transform="translate(-6 8) rotate(10 72 40)"/>
+        </g>
+        <path d="M44 100c6 4 14 4 20 0-2 8-4 12-10 12s-8-4-10-12z" fill="#d95a6a" stroke="#a8152b" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M54 100c-8-8-16-6-20-2 6 2 14 6 20 2zM54 100c8-8 16-6 20-2-6 2-14 6-20 2z" fill="#e8798a" stroke="#a8152b" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- bunny with bouquet -->
+      <svg class="ann-art bunny" viewBox="0 0 90 120" aria-hidden="true">
+        <g stroke="#8d8579" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M34 36C28 18 28 4 36 3c8 1 8 18 6 34z" fill="#efe9df"/>
+          <path d="M34 28c-1-8 0-16 3-20" stroke="#e5b5b0" fill="none"/>
+          <path d="M50 36C50 18 56 6 63 8c6 3 2 20-6 32z" fill="#efe9df"/>
+          <path d="M55 30c1-8 3-14 6-17" stroke="#e5b5b0" fill="none"/>
+          <path d="M26 56c0-14 10-22 24-22s22 8 22 22c0 8-3 12-3 20 0 14 4 22 4 30H34c-2-10-6-18-6-30 0-10-2-8-2-20z" fill="#f5f0e8"/>
+          <path d="M30 108c0 4 4 6 10 6h14c6 0 8-2 8-6" fill="#efe9df"/>
+        </g>
+        <circle cx="42" cy="52" r="2.2" fill="#4b3b36"/><circle cx="60" cy="52" r="2.2" fill="#4b3b36"/>
+        <path d="M48 58q3 3 6 0" fill="none" stroke="#a37b73" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="38" cy="58" rx="4" ry="2.6" fill="#f4c9c4" opacity=".8"/><ellipse cx="64" cy="58" rx="4" ry="2.6" fill="#f4c9c4" opacity=".8"/>
+        <g>
+          <path d="M60 72c4-8 12-12 20-8-2 10-10 16-20 14z" fill="#c9202f" stroke="#8d1124" stroke-width="1.6"/>
+          <circle cx="68" cy="66" r="4" fill="#e03a49"/><circle cx="76" cy="72" r="3.4" fill="#d02a3a"/><circle cx="64" cy="76" r="3.2" fill="#e03a49"/>
+          <path d="M52 74c8 2 14 4 18 2" stroke="#6e8f5a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M48 76c-6-4-12-2-14 2 6 2 12 2 14-2zM52 76c6-4 12-2 14 2-6 2-12 2-14-2z" fill="#7c9d68" stroke="#4f6e3f" stroke-width="1.4"/>
+        </g>
+      </svg>
+
+      <!-- cherries + bow -->
+      <svg class="ann-art cherries" viewBox="0 0 110 100" aria-hidden="true">
+        <path d="M34 30c14-14 30-14 44 2M62 26c-4 14-14 28-26 40M62 26c4 16 6 28 14 40" fill="none" stroke="#5f7c49" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="34" cy="76" r="15" fill="#b3152f" stroke="#7a0f20" stroke-width="2"/><circle cx="30" cy="70" r="4" fill="#fff" opacity=".45"/>
+        <circle cx="76" cy="76" r="15" fill="#c01a35" stroke="#7a0f20" stroke-width="2"/><circle cx="72" cy="70" r="4" fill="#fff" opacity=".45"/>
+        <g stroke="#c9885a" stroke-width="2" stroke-linejoin="round">
+          <path d="M55 26c-8-14-24-18-34-10-4 8 6 18 34 10z" fill="#f8c8a8"/>
+          <path d="M55 26c8-14 24-18 34-10 4 8-6 18-34 10z" fill="#f8c8a8"/>
+          <path d="M52 30c-4 8-10 12-14 14M58 30c4 8 10 12 14 14" fill="none"/>
+          <ellipse cx="55" cy="27" rx="6" ry="6.4" fill="#f0a98a"/>
+        </g>
+      </svg>
+    </div>
+
+    <span class="pager">6/6</span>
+  </section>
+
+  <footer class="foot" data-reveal>made with ♡ for my boy</footer>
+</main>
+
+<div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+
+<script src="assets/js/loader.js?v=1793373380" defer></script>
+<script src="assets/js/letter.js?v=1793369120" defer></script>
+<script src="assets/js/app.js?v=1793375090" defer></script>
+<script src="assets/js/crown.js?v=1793366542" defer></script>
+<script src="assets/js/invite.js?v=1793393169" defer></script>
+<script src="assets/js/music.js?v=1793374555" defer></script>
+<script>window.DN={"wa": "6281234567890", "date": "Thu, 5 Nov 2026", "venue": "Our favorite cafe"};(function(){var t=new URLSearchParams(location.search).get("to");if(t){t=t.replace(/[^\p{L}\p{N} .'-]/gu,"").slice(0,24).trim();var el=document.getElementById("guestName");if(t&&el)el.textContent=t;}})();</script>
+</body>
+</html>
