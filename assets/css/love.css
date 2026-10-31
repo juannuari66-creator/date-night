@@ -81,8 +81,8 @@
           mask:url(../img/love-collage.webp?v=2) center/100% 100% no-repeat;
 }
 .lv-bow{
-  position:absolute;left:-30px;top:6%;width:84px;height:auto;color:var(--ribbon);
-  transform:translateZ(46px) rotate(-18deg);
+  position:absolute;left:90%;top:-3%;width:84px;height:auto;color:var(--ribbon);
+  transform:translate(-50%,-50%) translateZ(46px) rotate(-18deg);
   filter:drop-shadow(0 6px 6px rgba(110,19,37,.3));
 }
 .lv-bow use{stroke-width:5}
@@ -162,5 +162,5 @@
 }
 @media (max-width:380px){
   .slide-love{padding-inline:14px}
-  .lv-bow{width:70px;left:-22px}
+  .lv-bow{width:70px}
 }
