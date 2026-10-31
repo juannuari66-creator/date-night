@@ -1,0 +1,152 @@
+/* ==========================================================
+   Date Night — halaman "All About My Love"
+   ========================================================== */
+.slide-love{
+  --rose:#e9a8b0;
+  padding:88px 20px 100px;
+  justify-content:flex-start;
+}
+.slide-love .head{margin-bottom:0}
+
+/* ---------- Heartbeat line ---------- */
+.lv-pulse{position:relative;width:min(88%,290px);margin:10px auto 0;color:var(--ribbon);z-index:1}
+.lv-pulse > svg.lv-line{display:block;width:100%;height:auto;overflow:visible}
+.lv-ecg-base,.lv-ecg{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.lv-ecg-base{stroke:var(--rose);stroke-width:1.6;opacity:.6}
+.lv-ecg{
+  stroke:var(--ribbon);stroke-width:2.6;
+  stroke-dasharray:64 336;stroke-dashoffset:64;
+  animation:lvTrace 3.4s linear infinite;
+  filter:drop-shadow(0 0 4px rgba(168,21,43,.45));
+}
+@keyframes lvTrace{to{stroke-dashoffset:-400}}
+.lv-pulse-heart{
+  position:absolute;left:50%;top:-6px;width:28px;height:28px;margin-left:-14px;
+  fill:none;stroke:var(--ribbon);stroke-width:1.9;stroke-linejoin:round;
+  transform-origin:50% 60%;animation:lvBeat 1.7s ease-in-out infinite;
+}
+.lv-pulse-heart.fill{fill:var(--ribbon)}
+@keyframes lvBeat{
+  0%,38%,100%{transform:scale(1)}
+  12%{transform:scale(1.28)}
+  22%{transform:scale(1.02)}
+  30%{transform:scale(1.16)}
+}
+
+/* ---------- Collage stage ---------- */
+.lv-stage{
+  position:relative;width:100%;max-width:372px;margin:18px auto 0;z-index:1;
+  perspective:1000px;touch-action:pan-y;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;
+  outline:none;
+}
+.lv-stage:focus-visible{outline:2px dashed var(--ribbon);outline-offset:6px;border-radius:16px}
+
+.lv-blush{
+  position:absolute;left:50%;top:50%;width:92%;height:84%;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(233,168,176,.38),rgba(233,168,176,.12) 60%,transparent 100%);
+  filter:blur(8px);pointer-events:none;
+  animation:lvGlow 5.5s ease-in-out infinite;
+}
+@keyframes lvGlow{50%{opacity:.55;transform:translate(-50%,-50%) scale(.94)}}
+
+.lv-sprig{
+  position:absolute;top:0;width:62px;height:100%;
+  color:var(--rose);opacity:.9;pointer-events:none;overflow:visible;
+}
+.lv-sprig.l{left:-10px}
+.lv-sprig.r{right:-10px;transform:scaleX(-1)}
+.lv-sprig .sway{transform-origin:50% 100%;animation:lvSway 7s ease-in-out infinite}
+.lv-sprig.r .sway{animation-delay:-3s}
+@keyframes lvSway{50%{transform:rotate(1.6deg)}}
+
+.lv-float{position:relative;width:86%;margin:0 auto;animation:lvFloat 7s ease-in-out infinite}
+@keyframes lvFloat{50%{transform:translateY(-7px)}}
+
+.lv-tilt{
+  position:relative;transform-style:preserve-3d;
+  transform:rotateX(0) rotateY(0);will-change:transform;
+  --gx:50%;--gy:35%;
+}
+.lv-img{
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 20px 18px rgba(69,16,27,.3)) drop-shadow(0 3px 4px rgba(69,16,27,.2));
+  pointer-events:none;-webkit-user-drag:none;
+}
+/* kilau cahaya hanya di area foto (dimask dengan bentuk gambar) */
+.lv-glare{
+  position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.9;
+  background:radial-gradient(circle at var(--gx) var(--gy),rgba(255,255,255,.95) 0,rgba(255,255,255,.35) 22%,transparent 46%);
+  -webkit-mask:url(../img/love-collage.webp) center/100% 100% no-repeat;
+          mask:url(../img/love-collage.webp) center/100% 100% no-repeat;
+}
+.lv-bow{
+  position:absolute;left:-30px;top:6%;width:84px;height:auto;color:var(--ribbon);
+  transform:translateZ(46px) rotate(-18deg);
+  filter:drop-shadow(0 6px 6px rgba(110,19,37,.3));
+}
+.lv-bow use{stroke-width:5}
+.lv-spk{position:absolute;color:var(--ribbon);pointer-events:none;animation:twinkle 4.2s ease-in-out infinite}
+.lv-spk.a{width:34px;height:34px;right:-22px;top:40%;transform:translateZ(36px)}
+.lv-spk.b{width:24px;height:24px;left:-16px;bottom:22%;transform:translateZ(30px);animation-delay:1.6s}
+.lv-spk.c{width:20px;height:20px;right:-6px;top:7%;transform:translateZ(24px);animation-delay:.8s;color:var(--rose)}
+
+/* entrance */
+.js .lv-stage .lv-float{opacity:0;transform:translateY(26px) scale(.94) rotate(-2deg);transition:opacity 1s var(--ease) .15s,transform 1.3s cubic-bezier(.2,1.1,.3,1) .15s}
+.js .lv-stage.in .lv-float{opacity:1;transform:none;animation:lvFloat 7s ease-in-out 1.6s infinite}
+
+/* ---------- Ambient hearts ---------- */
+.lv-amb{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.lv-amb i{
+  position:absolute;bottom:2%;width:var(--s,14px);height:var(--s,14px);color:var(--c,var(--rose));
+  opacity:0;animation:lvRise var(--t,9s) ease-in var(--dl,0s) infinite;
+}
+.lv-amb svg{width:100%;height:100%;fill:currentColor}
+@keyframes lvRise{
+  0%{opacity:0;transform:translate(0,0) scale(.6)}
+  15%{opacity:.75}
+  100%{opacity:0;transform:translate(var(--dx,0),-420px) scale(1.1) rotate(var(--r,12deg))}
+}
+
+/* ---------- Tap burst ---------- */
+.lv-fx{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:5}
+.lv-p{position:absolute;left:0;top:0;width:var(--s,18px);height:var(--s,18px);color:var(--c,var(--ribbon));will-change:transform,opacity}
+.lv-p svg{display:block;width:100%;height:100%}
+.lv-p.h svg{fill:currentColor;filter:drop-shadow(0 2px 3px rgba(168,21,43,.3))}
+.lv-p.s svg{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Note & chip ---------- */
+.lv-note{
+  position:relative;z-index:1;margin-top:20px;font-style:italic;font-weight:600;
+  font-size:clamp(17px,4.8vw,20px);color:var(--ink);opacity:.88;text-wrap:balance;
+}
+.lv-chip{
+  position:relative;z-index:1;margin-top:16px;display:inline-flex;align-items:center;gap:10px;
+  padding:10px 20px 10px 14px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--line);color:var(--ink);font:inherit;font-weight:700;font-size:15px;letter-spacing:.05em;
+  background:linear-gradient(180deg,#fff,#fff4f1);
+  box-shadow:0 10px 18px -12px rgba(110,19,37,.5),0 1px 0 #fff inset;
+  transition:transform .25s var(--ease),box-shadow .25s;
+  -webkit-tap-highlight-color:transparent;
+}
+.lv-chip:active{transform:scale(.96)}
+.lv-chip .ic{position:relative;width:26px;height:26px;display:grid;place-items:center;color:var(--ribbon)}
+.lv-chip .ic svg{width:100%;height:100%;fill:currentColor}
+.lv-chip .ic::after{
+  content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--ribbon);
+  opacity:0;animation:lvRing 2.4s ease-out infinite;
+}
+@keyframes lvRing{0%{opacity:.55;transform:scale(.7)}100%{opacity:0;transform:scale(1.5)}}
+.lv-chip b{font-variant-numeric:tabular-nums;min-width:1.2em;text-align:left}
+.lv-chip em{font-style:italic;font-weight:600;opacity:.75;transition:opacity .35s}
+.lv-chip em.swap{opacity:0}
+
+@media (prefers-reduced-motion:reduce){
+  .lv-float,.lv-blush,.lv-sprig .sway,.lv-ecg,.lv-pulse-heart,.lv-amb i,.lv-spk,.lv-chip .ic::after{animation:none!important}
+  .lv-amb{display:none}
+  .lv-ecg{stroke-dasharray:none}
+}
+@media (max-width:380px){
+  .slide-love{padding-inline:14px}
+  .lv-bow{width:70px;left:-22px}
+}
