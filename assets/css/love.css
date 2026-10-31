@@ -93,8 +93,8 @@
 
 /* hati coretan pink (tanda merah di kiri-atas collage) */
 .lv-scribble{
-  position:absolute;left:20.5%;top:16.5%;width:32%;height:auto;overflow:visible;
-  transform:translate(-50%,-50%) translateZ(34px) rotate(9deg);
+  position:absolute;left:19%;top:16.5%;width:32%;height:auto;overflow:visible;
+  transform:translate(-50%,-50%) translateZ(34px) rotate(22deg);
   pointer-events:none;
 }
 
