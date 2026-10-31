@@ -1,9 +1,12 @@
 /* ==========================================================
    Date Night — musik latar
-   1 lagu (assets/audio/1.mp3), mulai setelah loading selesai,
-   diulang terus. Saat loading tidak ada suara.
-   Browser memblokir autoplay sebelum ada sentuhan, jadi kalau
-   diblokir, musik mulai di tap/klik/tombol pertama.
+   1 lagu (assets/audio/1.mp3), diulang terus.
+   - Saat loading: tidak ada suara.
+   - Begitu loading selesai: musik langsung diputar.
+   Browser memblokir suara otomatis sebelum ada sentuhan di halaman.
+   Jadi sentuhan pertama (bahkan saat loading) hanya "membuka kunci"
+   audio secara diam-diam, supaya begitu loading selesai musik bisa
+   langsung bunyi. Kalau tetap diblokir, musik mulai di sentuhan berikutnya.
    ========================================================== */
 (() => {
   'use strict';
@@ -18,24 +21,40 @@
   audio.preload = 'auto';
   audio.volume = VOLUME;
 
-  let allowed = false;   // true setelah loading selesai
-  let playing = false;
+  let allowed  = false;   // true begitu loading selesai
+  let playing  = false;
+  let unlocking = false;
 
-  const GESTURES = ['pointerdown', 'keydown', 'touchend'];
+  const GESTURES = ['pointerdown', 'pointerup', 'mousedown', 'touchend', 'click', 'keydown'];
   const offGestures = () => GESTURES.forEach(g => removeEventListener(g, onGesture, true));
   const armGestures = () => GESTURES.forEach(g => addEventListener(g, onGesture, true));
 
   function onGesture() {
-    if (!allowed) return;          // tap saat loading tidak memulai musik
-    tryPlay();
+    if (playing) return;
+    if (allowed) tryPlay(); else unlock();
+  }
+
+  // Saat loading: putar diam-diam (muted) lalu jeda, hanya untuk membuka kunci autoplay
+  function unlock() {
+    if (unlocking || allowed) return;
+    unlocking = true;
+    audio.muted = true;
+    const p = audio.play();
+    if (!p || !p.then) { unlocking = false; audio.muted = false; return; }
+    p.then(() => {
+      unlocking = false;
+      if (allowed) { audio.muted = false; playing = true; offGestures(); }   // loading sudah selesai saat ini
+      else { audio.pause(); audio.currentTime = 0; audio.muted = false; }
+    }).catch(() => { unlocking = false; audio.muted = false; });
   }
 
   function tryPlay() {
     if (!allowed || playing) return;
+    audio.muted = false;
     const p = audio.play();
     if (!p || !p.then) return;
     p.then(() => { playing = true; offGestures(); })
-     .catch(() => { /* diblokir → tunggu gesture berikutnya */ });
+     .catch(() => { /* diblokir → tunggu sentuhan berikutnya */ });
   }
 
   function allow() { allowed = true; tryPlay(); }
@@ -44,10 +63,11 @@
 
   if (root.classList.contains('is-loading')) {
     addEventListener('loader:done', allow, { once: true });
-    setTimeout(() => { if (!root.classList.contains('is-loading')) allow(); }, 9000); // jaga-jaga
+    setTimeout(() => { if (!allowed && !root.classList.contains('is-loading')) allow(); }, 9000); // jaga-jaga
   } else {
     allow();                       // tanpa loader (mis. setelah kirim form)
   }
+  audio.addEventListener('canplay', tryPlay);
 
   // hemat baterai: jeda saat tab disembunyikan, lanjut saat kembali
   document.addEventListener('visibilitychange', () => {
